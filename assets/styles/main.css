@@ -345,6 +345,8 @@ a:hover{
 }
 
 .idle-state{
+    position: relative;
+    z-index: 0;
     text-transform: uppercase;
     font-size: 14px;
     width: calc(100% - 60px);
