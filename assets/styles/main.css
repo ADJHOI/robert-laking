@@ -345,6 +345,8 @@ a:hover{
 }
 
 .idle-state{
+    position: relative;
+    z-index: 0;
     text-transform: uppercase;
     font-size: 14px;
     width: calc(100% - 60px);
@@ -379,8 +381,10 @@ a:hover{
 }
 
 .pdf{
+    position: relative;
     width: 100%;
     height: 100%;
+    z-index: 5;
     border: none;
     -webkit-overflow-scrolling: touch;
 }
