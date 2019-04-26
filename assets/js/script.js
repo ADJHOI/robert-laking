@@ -234,12 +234,79 @@ $("#pdf-view").click(function(event){
     $("#pdf-container").addClass("active");
     $("#view").addClass("active");
     $("#nav").addClass("active");
+    $("html").addClass("locked");
 });
 
-$("#view").click(function(event){
+$("#view-close").click(function(event){
     $("#pdf-container").removeClass("active");
     $("#view").removeClass("active");
     $("#nav").removeClass("active");
+    $("html").removeClass("locked");
+});
+
+var jqueryPlayer = new Vimeo.Player($('iframe'));
+
+$("#video-view").click(function(event){
+    $("#video-container").addClass("active");
+    $("#video-control").addClass("active");
+    $("#nav").addClass("active");
+    $("html").addClass("locked");
+        jqueryPlayer.play().then(function() {
+    }).catch(function(error) {
+        switch (error.name) {
+            case 'PasswordError':
+                break;
+
+            case 'PrivacyError':
+                break;
+
+            default:
+                break;
+        }
+    }); 
+});
+
+$("#video-close").click(function(event){
+    $("#video-container").removeClass("active");
+    $("#video-control").removeClass("active");
+    $("#nav").removeClass("active");
+    $("html").removeClass("locked");
+    jqueryPlayer.unload().then(function() {
+    }).catch(function(error) {
+    });
+});
+
+
+$("#video-play").click(function(event){
+    jqueryPlayer.play().then(function() {
+    }).catch(function(error) {
+        switch (error.name) {
+            case 'PasswordError':
+                break;
+
+            case 'PrivacyError':
+                break;
+
+            default:
+                break;
+        }
+    }); 
+});
+
+$("#video-pause").click(function(event){
+    jqueryPlayer.pause().then(function() {
+    }).catch(function(error) {
+        switch (error.name) {
+            case 'PasswordError':
+                break;
+
+            case 'PrivacyError':
+                break;
+
+            default:
+                break;
+        }
+    }); 
 });
 
 $(function () {
@@ -264,4 +331,4 @@ if (touch) { // remove all :hover stylesheets
         }
     } catch (ex) {}
 }
-    });   
+});

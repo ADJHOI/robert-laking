@@ -76,6 +76,15 @@
             <p class="credit">This work was exhibited in the <a href="exhibition.html">Exposure Exhibition</a></p>
             
         </div>
+            
+        <div class="section" id="video-view">
+            <a><p>View Video</p></a>
+        </div>     
+                
+        <div id="video-container">
+            <p class="idle-state">Loading video</p>
+            <iframe class="video" src="https://player.vimeo.com/video/239584374?color=ffffff&title=0&byline=0&portrait=0" width="640" height="338" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>    
         
         <div class="section" id="work-section">
             
@@ -120,11 +129,24 @@
                 </div>
                 </div>
                 
+                <div id="video-control">
+                <div id="video-pause">
+                    <p><span id="view-pause-btn">▌▌</span></p>
+                </div>
+                <div id="video-close">
+                    <p><span id="view-close-btn">Close</span></p>
+                </div>
+                <div id="video-play">
+                    <p><span id="view-play-btn">►</span></p>
+                </div>    
+                </div>
+                
             </div>
             <div class="white-fill">
             </div>
         </div>
         
+        <script src="https://player.vimeo.com/api/player.js"></script>
         <script type="text/javascript" src="assets/js/script.js"></script>
         
     </body>

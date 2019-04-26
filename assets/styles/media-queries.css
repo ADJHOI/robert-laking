@@ -21,6 +21,12 @@
         font-size: 11px;
     }
     
+    #pdf-container, #video-container{
+    top: 42px;
+    height: calc(100% - 124px);
+}
+
+    
     .section{
         margin-left: 15px;
     }
@@ -67,5 +73,20 @@
     
     .work-image-wrapper{
         width: calc(100% - 74px);
+    }
+    
+    .contact {
+        height: 26px;
+    }
+    
+    #view-pause-btn{
+        font-size: 9px;
+        position: relative;
+        top: -2px;
+    }
+
+    #view-play-btn{
+        position: relative;
+        top: 0px;
     }
 }
