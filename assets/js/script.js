@@ -1,7 +1,7 @@
 //  variables START //
 var i;    
 var n;
-
+var t;
 // variables END //
 
 if (sessionStorage.aboutToggled === "1") {
@@ -177,10 +177,12 @@ $("#carousel-left,#click-nav-left").click(function(event){
     $("#counter").html("( " + n + " / " + i + " )");
 });
 
-document.onkeydown = keyNav;
+//document.onkeydown = keyNav;
+//
+//function keyNav(event) {
 
-function keyNav(event) {
-
+$(document).keydown(function(event){
+    
     event = event || window.event;
 
     if ((event.key === 'ArrowLeft' || event.key == 'a') && $("#carousel-container").hasClass("active")) {
@@ -212,7 +214,7 @@ function keyNav(event) {
         $("#subtitle").removeClass("active");
         $("#counter").removeClass("active");
     }
-}
+});
 
 $("#carousel-close").click(function(){
     $("#nav").removeClass("active");
@@ -244,71 +246,6 @@ $("#view-close").click(function(event){
     $("html").removeClass("locked");
 });
 
-var jqueryPlayer = new Vimeo.Player($('iframe'));
-
-$("#video-view").click(function(event){
-    $("#video-container").addClass("active");
-    $("#video-control").addClass("active");
-    $("#nav").addClass("active");
-    $("html").addClass("locked");
-        jqueryPlayer.play().then(function() {
-    }).catch(function(error) {
-        switch (error.name) {
-            case 'PasswordError':
-                break;
-
-            case 'PrivacyError':
-                break;
-
-            default:
-                break;
-        }
-    }); 
-});
-
-$("#video-close").click(function(event){
-    $("#video-container").removeClass("active");
-    $("#video-control").removeClass("active");
-    $("#nav").removeClass("active");
-    $("html").removeClass("locked");
-    jqueryPlayer.unload().then(function() {
-    }).catch(function(error) {
-    });
-});
-
-
-$("#video-play").click(function(event){
-    jqueryPlayer.play().then(function() {
-    }).catch(function(error) {
-        switch (error.name) {
-            case 'PasswordError':
-                break;
-
-            case 'PrivacyError':
-                break;
-
-            default:
-                break;
-        }
-    }); 
-});
-
-$("#video-pause").click(function(event){
-    jqueryPlayer.pause().then(function() {
-    }).catch(function(error) {
-        switch (error.name) {
-            case 'PasswordError':
-                break;
-
-            case 'PrivacyError':
-                break;
-
-            default:
-                break;
-        }
-    }); 
-});
-
 $(function () {
 var touch = 'ontouchstart' in document.documentElement
             || navigator.maxTouchPoints > 0
@@ -331,4 +268,4 @@ if (touch) { // remove all :hover stylesheets
         }
     } catch (ex) {}
 }
-});
+    });   

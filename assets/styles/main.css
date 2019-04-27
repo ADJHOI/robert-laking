@@ -68,31 +68,35 @@ a:hover{
 
 .header-title{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    -ms-grid-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
+    -ms-grid-columns: repeat(auto-fit, minmax(0px, 1fr));
 }
 
 #subtitle{
     text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    width: auto;
 }
 
 #subtitle.active{
     display: none;
 }
 
-#counter.active{
-    display: block;
-}
-
 #counter{
-/*
-    position: absolute;
-    right: 0px;
-    top: 16px;
-    padding-left: 10px;
-*/
     text-align: right;
     display: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    width: auto;
+}
+
+#counter.active{
+    display: block;
 }
 
 #author{
@@ -112,7 +116,7 @@ a:hover{
     position: relative;
     margin-top: 32px;
     padding-bottom: 80px;
-/*    height: calc(100% - 60px);*/
+/*    height: calc(100% - 100px);*/
 }
 
 .section-title{
@@ -205,7 +209,7 @@ a:hover{
 }
 
 .list-title{
-/*    position: relative;*/
+    position: relative;
     z-index: 1;
     padding: 0px;
     margin: 5px 0px 10px 5px;
@@ -216,7 +220,7 @@ a:hover{
 }
 
 .list a:hover .list-title{
-    z-index: 4;
+    z-index: 3;
 }
 
 .thumbnail-wrapper{
@@ -267,7 +271,6 @@ a:hover{
     top: 45px;
     left: 0px;
     width: calc(100% - 60px);
-/*    width: 100%;*/
     height: calc(100% - 130px);
     z-index: 6;
     background-color: #ffffff;
@@ -278,6 +281,109 @@ a:hover{
     -moz-user-select: none;
     -ms-user-select: none; 
     user-select: none; 
+}
+
+#video-container{
+    margin-top: 40px;
+    width: 100%;
+/*    height: calc(100vh - 330px);*/
+    height: 470px;
+    min-height: 200px;
+    cursor: pointer;
+}
+
+#video-container.active{
+    position: fixed;
+    margin-top: 0px;
+    min-height: 0;
+    top: 45px;
+    left: 0px;
+    width: calc(100% - 60px);
+    height: calc(100% - 130px);
+    z-index: 6;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    display: -webkit-flex;
+    display: flex;
+    cursor: default;
+}
+
+#video-container:hover #video{
+    opacity: 0.5;
+}
+
+#video-container:hover.active #video{
+    opacity: 1;
+}
+
+#video{
+    margin: auto auto;
+    position: relative;
+    z-index: 5;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#video.active{
+    pointer-events: auto;
+}
+
+.idle-state{
+    position: relative;
+    z-index: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    width: calc(100% - 60px);
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    padding: 0px;
+    line-height: calc(100% - 120px);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; 
+    user-select: none;
+    cursor: default;
+}
+
+#pdf-container{
+    position: fixed;
+    top: 45px;
+    left: 0px;
+    width: calc(100% - 60px);
+    height: calc(100% - 130px);
+    z-index: 6;
+    background-color: #ffffff;
+    padding: 20px 30px;
+/*    display: none;*/
+    display: -webkit-flex;
+    display: flex;
+    visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+#pdf-container.active{
+    visibility: visible;
+}
+
+.pdf{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    border: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pdf-link{
+    color: #8e8e8e;
+    cursor: pointer;
+}
+
+.pdf-link:hover{
+    color: #000000;
 }
 
 .click-nav{
@@ -342,69 +448,6 @@ a:hover{
 
 .work-image.active:hover{
     opacity: 1 !important;
-}
-
-.idle-state{
-    position: relative;
-    z-index: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    width: calc(100% - 60px);
-    position: absolute;
-    top: 50%;
-    text-align: center;
-    padding: 0px;
-    line-height: calc(100% - 120px);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none; 
-    user-select: none;
-    cursor: default;
-}
-
-#pdf-container, #video-container{
-    position: fixed;
-    top: 45px;
-    left: 0px;
-    width: calc(100% - 60px);
-    height: calc(100% - 130px);
-    z-index: 6;
-    background-color: #ffffff;
-    padding: 20px 30px;
-/*    display: none;*/
-    display: -webkit-flex;
-    display: flex;
-    visibility: hidden;
-    -webkit-overflow-scrolling: touch;
-}
-
-#pdf-container.active, #video-container.active{
-    visibility: visible;
-}
-
-.pdf{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    border: none;
-    -webkit-overflow-scrolling: touch;
-}
-
-.pdf-link{
-    color: #8e8e8e;
-    cursor: pointer;
-}
-
-.pdf-link:hover{
-    color: #000000;
-}
-
-.video{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
 }
 
 .footer{
@@ -498,13 +541,16 @@ a:hover{
     bottom: 1px;
 }
 
-#view-pause-btn{
-    font-size: 10px;
+#video-pause-btn{
+/*    font-size: 10px;*/
     position: relative;
-    top: -2px;
+    left: -5px;
+/*    top: -2px;*/
+    letter-spacing: -7px;
 }
 
-#view-play-btn{
+#video-play-btn{
     position: relative;
-    top: 1px;
+/*    top: 1px;*/
+    letter-spacing: -7px;
 }

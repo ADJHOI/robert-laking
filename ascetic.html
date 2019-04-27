@@ -48,15 +48,15 @@
         <div id="body-content">
         
         <div class="section">
-            <p>Title:<span class="field" id="field-title">untιttled jot and t.ttle</span></p>
+            <p>Title:<span class="field" id="field-title">an ascetic dissertation in dissociative aesthetics</span></p>
         </div>
             
         <div class="section">
-            <p>Date:<span class="field" id="field-date">2016 – 17</span></p>
+            <p>Date:<span class="field" id="field-date">2017</span></p>
         </div>
             
         <div class="section">
-            <p>Medium:<span class="field" id="field-medium">Casting Plaster</span></p>
+            <p>Medium:<span class="field" id="field-medium">Text, Motion Video</span></p>
         </div> 
             
         <div class="section">
@@ -70,19 +70,27 @@
                 
             </div>
         </div>
+            
+        <div class="section">
+            
+            <a href="exhibition.html"><p>Read more about the exhibition</p></a>
+            
+        </div>    
         
+<!--
+        <div class="section" id="video-view">
+            <a><p>Play Video</p></a>
+        </div>    
+-->
+            
         <div class="section" id="work-section">
             
-                <div id="carousel-container">
-                    <div class="click-nav" id="click-nav-left"></div>
-                    <div class="click-nav" id="click-nav-right"></div>
-                    <div class="work-image-wrapper">
-                            <img class="work-image" src="assets/images/robert_laking_01.jpg">
-                    </div>
-                    <div class="work-image-wrapper">
-                            <img class="work-image" src="assets/images/robert_laking_02-robert-laking.jpg">
-                    </div>
-                </div>
+            <div id="video-container">
+<!--                <p class="idle-state">Loading video</p>-->
+                <iframe id="video" src="https://player.vimeo.com/video/239584374?color=ffffff&title=0&byline=0&portrait=0" width="640" height="338" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+<!--                <div id="video"></div>-->
+<!--                &background=true&muted=false&autoplay=false-->
+            </div> 
             
         </div>
         </div>
@@ -102,16 +110,30 @@
                 </div>
                 </div>
                 
-                <div id="carousel">
-                <div id="carousel-left">
-                    <p><span id="carousel-left-btn">←</span></p>
+<!--
+                <div id="video-control">
+                <div id="video-pause">
+                    <p><span id="view-pause-btn">▌▌</span></p>
                 </div>
-                <div id="carousel-close">
-                    <p><span id="carousel-close-btn">Close</span></p>
+                <div id="video-close">
+                    <p><span id="view-close-btn">Close</span></p>
                 </div>
-                <div id="carousel-right">
-                    <p><span id="carousel-right-btn">→</span></p>
+                <div id="video-play">
+                    <p><span id="view-play-btn">►</span></p>
+                </div>    
                 </div>
+-->
+                
+                <div id="video-control">
+                <div id="video-pause">
+                    <p><span id="video-pause-btn">◄◄</span></p>
+                </div>
+                <div id="video-close">
+                    <p><span id="video-close-btn">Close</span></p>
+                </div>
+                <div id="video-play">
+                    <p><span id="video-play-btn">►►</span></p>
+                </div>    
                 </div>
                 
             </div>
@@ -121,6 +143,7 @@
         
         <script src="https://player.vimeo.com/api/player.js"></script>
         <script type="text/javascript" src="assets/js/script.js"></script>
+        <script type="text/javascript" src="assets/js/video-player.js"></script>
         
     </body>
     

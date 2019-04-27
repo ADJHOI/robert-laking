@@ -5,9 +5,22 @@
     }
 }
 
+@media only screen and (max-width: 955px) {
+    #video-container{
+        padding-top: 20px;
+        height: 350px;
+    }
+}
+
 @media only screen and (max-width: 800px) {
     .work-image-wrapper{
         height: 150px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #video-container{
+        height: 250px;
     }
 }
 
@@ -22,10 +35,9 @@
     }
     
     #pdf-container, #video-container{
-    top: 42px;
-    height: calc(100% - 124px);
-}
-
+        top: 42px;
+        height: calc(100% - 124px);
+    }
     
     .section{
         margin-left: 15px;
@@ -79,14 +91,26 @@
         height: 26px;
     }
     
-    #view-pause-btn{
+    #video-container{
+        padding-top: 10px;
+        height: 0px;
+        margin-bottom: -20px
+    }
+    
+    #video-pause-btn{
+/*
         font-size: 9px;
         position: relative;
         top: -2px;
+*/
+        letter-spacing: -6px;
     }
 
-    #view-play-btn{
+    #video-play-btn{
+/*
         position: relative;
         top: 0px;
+*/
+        letter-spacing: -6px;
     }
 }
