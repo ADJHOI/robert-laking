@@ -284,11 +284,9 @@ a:hover{
 }
 
 #video-container{
-    margin-top: 40px;
+    margin-top: 20px;
     width: 100%;
-/*    height: calc(100vh - 330px);*/
-    height: 470px;
-    min-height: 200px;
+    height: 450px;
     cursor: pointer;
 }
 
