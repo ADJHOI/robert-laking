@@ -213,6 +213,11 @@ $(document).keydown(function(event){
         $(".work-image-wrapper").removeClass("current");
         $("#subtitle").removeClass("active");
         $("#counter").removeClass("active");
+    } else if ((event.key === 'Escape' && $("#pdf-container").hasClass("active"))) {
+        $("#pdf-container").removeClass("active");
+        $("#view").removeClass("active");
+        $("#nav").removeClass("active");
+        $("html").removeClass("locked");
     }
 });
 

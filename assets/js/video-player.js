@@ -1,5 +1,9 @@
 var jqueryPlayer = new Vimeo.Player($('#video'));
 
+jqueryPlayer.ready(function () {
+    jqueryPlayer.contents().find('.player .vp-controls .play').css({'width':'5px !important'});
+});
+
 $("#video-container").click(function(event){
     $("#video-container").addClass("active");
     $("#video-control").addClass("active");
@@ -114,4 +118,19 @@ $("#video-close").click(function(event){
     jqueryPlayer.unload().then(function() {
     }).catch(function(error) {
     });
+});
+
+$(document).keydown(function(event){
+    if (event.key === 'Escape' && $("#video-container").hasClass("active")) {
+        $("#video-container").removeClass("active");
+        $("#video-control").removeClass("active");
+        $("#video").removeClass("active");
+        $("#nav").removeClass("active");
+        $("html").removeClass("locked");
+        $("#subtitle").removeClass("active");
+        $("#counter").removeClass("active");
+        jqueryPlayer.unload().then(function() {
+        }).catch(function(error) {
+        }); 
+    }
 });

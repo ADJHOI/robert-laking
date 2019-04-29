@@ -328,6 +328,10 @@ a:hover{
     pointer-events: auto;
 }
 
+.player .vp-controls .play{
+    width: 50px !important;
+}
+
 .idle-state{
     position: relative;
     z-index: 0;
