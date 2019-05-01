@@ -514,7 +514,7 @@ a:hover{
     display: none;
 }
 
-.nav-prev, #carousel-left, video-pause{
+.nav-prev, #carousel-left, #video-rewind{
     text-align: left;
 }
 
@@ -522,7 +522,7 @@ a:hover{
     text-align: center;
 }
 
-.nav-next, #carousel-right, #video-play{
+.nav-next, #carousel-right, #video-forward{
     text-align: right;
 }
 
@@ -531,7 +531,7 @@ a:hover{
     line-height: 20px;
 }
 
-#carousel-left-btn, #carousel-right-btn, #carousel-close-btn, #view-close-btn, #video-close-btn, #video-play-btn, #video-pause-btn{
+#carousel-left-btn, #carousel-right-btn, #carousel-close-btn, #view-close-btn, #video-close-btn, #video-forward-btn, #video-rewind-btn{
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none; 
@@ -543,15 +543,13 @@ a:hover{
     bottom: 1px;
 }
 
-#video-pause-btn{
-/*    font-size: 10px;*/
+#video-rewind-btn{
     position: relative;
-    left: -5px;
-/*    top: -2px;*/
+    left: -6px;
     letter-spacing: -7px;
 }
 
-#video-play-btn{
+#video-forward-btn{
     position: relative;
 /*    top: 1px;*/
     letter-spacing: -7px;
