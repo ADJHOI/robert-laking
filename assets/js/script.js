@@ -1,8 +1,5 @@
-//  variables START //
 var i;    
 var n;
-var t;
-// variables END //
 
 if (sessionStorage.aboutToggled === "1") {
     $("#about-container").toggleClass("active", true);
@@ -133,10 +130,6 @@ $("#info").click(function(event) {
     }
 });
 
-//  info function END //
-
-//  carousel START //
-
 $(".work-image").click(function(event){
     
     var imageNumber = Array.prototype.slice.call( $(".work-image"), 0 );
@@ -148,13 +141,18 @@ $(".work-image").click(function(event){
     $("#carousel-container").toggleClass("active");
     $("#click-nav-left").toggleClass("active");
     $("#click-nav-right").toggleClass("active");
-    $("html").toggleClass("active");
+    $("html").toggleClass("locked");
     $(".work-image").toggleClass("active");
     $(".work-image-wrapper").toggleClass("active");
     $(".work-image-wrapper").eq(n-1).toggleClass("current");
     $("#subtitle").toggleClass("active");
     $("#counter").html("( " + n + " / " + i + " )");
     $("#counter").toggleClass("active");
+    
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $(".work-image-wrapper").eq(n-1).offset().top - 50
+    }, 0);
+    
 });
 
 $("#carousel-right,#click-nav-right").click(function(event){
@@ -177,15 +175,11 @@ $("#carousel-left,#click-nav-left").click(function(event){
     $("#counter").html("( " + n + " / " + i + " )");
 });
 
-//document.onkeydown = keyNav;
-//
-//function keyNav(event) {
-
 $(document).keydown(function(event){
     
     event = event || window.event;
 
-    if ((event.key === 'ArrowLeft' || event.key == 'a') && $("#carousel-container").hasClass("active")) {
+    if (event.key === 'ArrowLeft' && $("#carousel-container").hasClass("active")) {
         n --;
         if (n < 1) {
             n = i;
@@ -193,7 +187,7 @@ $(document).keydown(function(event){
         $(".work-image-wrapper").removeClass("current");
         $(".work-image-wrapper").eq(n-1).addClass("current");
         $("#counter").html("( " + n + " / " + i + " )");
-    } else if ((event.key === 'ArrowRight' || event.key == 'd') && $("#carousel-container").hasClass("active")) {
+    } else if (event.key === 'ArrowRight' && $("#carousel-container").hasClass("active")) {
         n ++;
         if (n > i) {
             n = 1;
@@ -233,9 +227,12 @@ $("#carousel-close").click(function(){
     $(".work-image-wrapper").removeClass("current");
     $("#subtitle").removeClass("active");
     $("#counter").removeClass("active");
+    
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $(".work-image-wrapper").eq(n-1).offset().top - 50
+    }, 0);
+    
 });
-
-//  carousel END //  
 
 $("#pdf-view").click(function(event){
     $("#pdf-container").addClass("active");
@@ -256,8 +253,8 @@ var touch = 'ontouchstart' in document.documentElement
             || navigator.maxTouchPoints > 0
             || navigator.msMaxTouchPoints > 0;
 
-if (touch) { // remove all :hover stylesheets
-    try { // prevent exception on browsers not supporting DOM styleSheets properly
+if (touch) {
+    try {
     
         for (var si in document.styleSheets) {
             var styleSheet = document.styleSheets[si];
