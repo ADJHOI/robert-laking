@@ -1,8 +1,21 @@
 var jqueryPlayer = new Vimeo.Player($('#video'));
 
-jqueryPlayer.ready(function () {
-    jqueryPlayer.contents().find('.player .vp-controls .play').css({'width':'5px !important'});
-});
+jqueryPlayer.play().then(function() {
+    jqueryPlayer.unload().then(function() {
+        }).catch(function(error) {
+    });
+    }).catch(function(error) {
+        switch (error.name) {
+            case 'PasswordError':
+                break;
+            case 'PrivacyError':
+                break;
+            default:
+                break;
+        }
+    });
+
+jqueryPlayer.off('play');    
 
 $("#video-container").click(function(event){
     $("#video-container").addClass("active");
@@ -22,16 +35,24 @@ $("#video-container").click(function(event){
             default:
                 break;
         }
-    }); 
+    });
+    
+    jqueryPlayer.on('pause', function(data) {
+        $("#counter").html("( Press Play )");
+    });
+    
 });
 
 jqueryPlayer.on('timeupdate', function(data) {
+    
+    jqueryPlayer.off('pause'); 
+    
     t = 0;
     jqueryPlayer.getDuration().then(function(duration) {
 
     $("#counter").html("( " + Math.round(data["seconds"]) + "s / " + Math.round(duration) + "s )");
         
-    $("#video-play").click(function(event){
+    $("#video-forward").click(function(event){
         t = data["seconds"] + 5;
         if (t >= (duration - 0.25)){
             t = duration - 0.25;
@@ -47,7 +68,7 @@ jqueryPlayer.on('timeupdate', function(data) {
             }); 
     });
     
-    $("#video-pause").click(function(event){
+    $("#video-rewind").click(function(event){
         t = data["seconds"] - 5;
         if (t <= 0) {
             t = 0;
@@ -61,38 +82,6 @@ jqueryPlayer.on('timeupdate', function(data) {
                     break;
             }
         }); 
-    });
-    
-    $(document).keydown(function(event){
-        if ((event.key === 'ArrowLeft' || event.key == 'a') && $("#video-container").hasClass("active")) {
-            t = data["seconds"] - 5;
-            if (t <= 0) {
-            t = 0;
-        }
-        jqueryPlayer.setCurrentTime(t).then(function(seconds){
-        }).catch(function(error) {
-            switch (error.name) {
-                case 'RangeError':
-                    break;
-                default:
-                    break;
-            }
-        });
-        } else if ((event.key === 'ArrowRight' || event.key == 'd') && $("#video-container").hasClass("active")) {
-            t = data["seconds"] + 5;
-            if (t >= (duration - 0.25)){
-                t = duration - 0.25;
-            }
-            jqueryPlayer.setCurrentTime(t).then(function(seconds) {
-                }).catch(function(error) {
-                    switch (error.name) {
-                    case 'RangeError':
-                    break;
-                    default:
-                    break;
-                }
-            }); 
-        }
     });
         
     jqueryPlayer.on('bufferstart', function(data) {
@@ -115,9 +104,14 @@ $("#video-close").click(function(event){
     $("html").removeClass("locked");
     $("#subtitle").removeClass("active");
     $("#counter").removeClass("active");
+    
     jqueryPlayer.unload().then(function() {
     }).catch(function(error) {
     });
+    
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#video-container").offset().top - 50
+    }, 0);
 });
 
 $(document).keydown(function(event){
