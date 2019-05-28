@@ -25,7 +25,6 @@ $("#video-container").click(function(event){
     $("html").addClass("locked");
     $("#subtitle").addClass("active");
     $("#counter").addClass("active");
-    console.log("hello"); 
     jqueryPlayer.play().then(function() {
     }).catch(function(error) {
         switch (error.name) {
@@ -35,7 +34,7 @@ $("#video-container").click(function(event){
                 break;
             default:
                 break;
-        }
+        }        
     });
     
     jqueryPlayer.on('pause', function(data) {

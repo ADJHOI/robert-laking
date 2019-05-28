@@ -7,21 +7,13 @@
 
 @media only screen and (max-width: 955px) {
     #video-container{
-        margin-top: 0px;
+        margin-top: 15px;
         margin-bottom: -20px;
         padding-bottom: 56.26%;
         height: 0;
     }
     
     #video-container.active{
-/*
-        position: fixed;
-        margin-top: 0px;
-        min-height: 0;
-        top: 45px;
-        left: 0px;
-*/
-/*        left: 15px;*/
         width: calc(100% - 60px);
         height: calc(100% - 130px);
         z-index: 6;
@@ -42,7 +34,6 @@
     }
     
     #video.active{
-        top: 20px;
         left: 30px;
         width: calc(100% - 60px);
         height: calc(100% - 40px);
@@ -126,20 +117,22 @@
         padding-top: 0px;
     }
     
+    #video.active{
+        left: 15px;
+        width: calc(100% - 30px);
+        height: calc(100% - 40px);
+    }
+    
     #video-pause-btn{
-/*
         font-size: 9px;
         position: relative;
         top: -2px;
-*/
         letter-spacing: -6px;
     }
 
     #video-play-btn{
-/*
         position: relative;
         top: 0px;
-*/
         letter-spacing: -6px;
     }
 }

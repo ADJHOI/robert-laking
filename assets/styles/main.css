@@ -291,6 +291,7 @@ a:hover{
 }
 
 #video-container.active{
+    opacity: 1 !important;
     position: fixed;
     margin-top: 0px;
     min-height: 0;
@@ -306,12 +307,8 @@ a:hover{
     cursor: default;
 }
 
-#video-container:hover #video{
+#video-container:hover{
     opacity: 0.5;
-}
-
-#video-container:hover.active #video{
-    opacity: 1;
 }
 
 #video{
@@ -326,10 +323,6 @@ a:hover{
 
 #video.active{
     pointer-events: auto;
-}
-
-.player .vp-controls .play{
-    width: 50px !important;
 }
 
 .idle-state{
