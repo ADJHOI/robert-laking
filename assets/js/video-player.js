@@ -1,4 +1,4 @@
-var jqueryPlayer = new Vimeo.Player($('#video'));
+var jqueryPlayer = new Vimeo.Player($('#video-container'));
 
 jqueryPlayer.play().then(function() {
     jqueryPlayer.unload().then(function() {
@@ -25,6 +25,7 @@ $("#video-container").click(function(event){
     $("html").addClass("locked");
     $("#subtitle").addClass("active");
     $("#counter").addClass("active");
+    console.log("hello"); 
     jqueryPlayer.play().then(function() {
     }).catch(function(error) {
         switch (error.name) {
@@ -38,7 +39,17 @@ $("#video-container").click(function(event){
     });
     
     jqueryPlayer.on('pause', function(data) {
-        $("#counter").html("( Press Play )");
+        jqueryPlayer.play().then(function() {
+    }).catch(function(error) {
+        switch (error.name) {
+            case 'PasswordError':
+                break;
+            case 'PrivacyError':
+                break;
+            default:
+                break;
+        }
+    });
     });
     
 });
