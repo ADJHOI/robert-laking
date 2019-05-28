@@ -39,17 +39,7 @@ $("#video-container").click(function(event){
     });
     
     jqueryPlayer.on('pause', function(data) {
-        jqueryPlayer.play().then(function() {
-    }).catch(function(error) {
-        switch (error.name) {
-            case 'PasswordError':
-                break;
-            case 'PrivacyError':
-                break;
-            default:
-                break;
-        }
-    });
+        $("#counter").html("( Press Play )");
     });
     
 });
