@@ -1,4 +1,6 @@
-var vid = document.getElementById("video");
+var video = document.getElementById("video");
+
+video.load();
 
 $("#video-container").click(function(event){
     $("#video-container").addClass("active");
