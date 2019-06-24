@@ -302,6 +302,7 @@ a:hover{
     height: 100%;
     display: block;
     cursor: pointer;
+    background: #000000;
 }
 
 #video.active{
